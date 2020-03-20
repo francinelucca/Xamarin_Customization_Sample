@@ -3,7 +3,7 @@ Sample Xamarin Project containing samples of platform-specific customizations su
 
 ## iOS Visuals (Iphone 8):
 ### Login Page
-![Main Page](Images/iOS/MainPageView.jpeg)
+![Main Page](Images/iOS/MainPageView.png)
 
 
 ## Android Visuals (Pixel 2):
