@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinCustomizationSample.MainPage"
+             xmlns:local="clr-namespace:XamarinCustomizationSample.Controls"
+             xmlns:effects="clr-namespace:XamarinCustomizationSample.Effects"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             ios:NavigationPage.HideNavigationBarSeparator="True">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="{Binding CurrentDeviceOrientation, StringFormat='Current Device Orientation: {0:F0}'}" 
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"/>
+        <Label Text="Entry Background Color Custom Renderer" 
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" />
+        <local:EntryWithBackgroundColor 
+               ios:Entry.AdjustsFontSizeToFitWidth="True"
+               Placeholder="Entry"/>
+        <local:EntryWithBackgroundColor CustomBackgroundColor="Green" 
+               Placeholder="Entry"
+               android:Entry.ImeOptions="Send"/>
+        <Label Text="Entry Background Color Effect" 
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" />
+        <Entry 
+             ios:Entry.AdjustsFontSizeToFitWidth="True"
+               Placeholder="Entry">
+            <Entry.Effects>
+                <effects:BackgroundColorEffect/>
+            </Entry.Effects>
+        </Entry>
+        <Entry
+               Placeholder="Entry"
+                android:Entry.ImeOptions="Send">
+            <Entry.Effects>
+                <effects:BackgroundColorEffect BackgroundColor="Green"/>
+            </Entry.Effects>
+        </Entry>
+        <Button Text="Check Orientation"
+             android:Button.UseDefaultShadow="False"
+                android:Button.UseDefaultPadding="False"
+                Command="{Binding GetDeviceOrientationCommand}"/>
+        <Button Text="Check Orientation"
+             android:Button.UseDefaultShadow="True"
+                android:Button.UseDefaultPadding="True"
+                Command="{Binding GetDeviceOrientationCommand}"/>
+        <Button Text="Check Orientation"
+             android:Button.UseDefaultShadow="False"
+                android:Button.UseDefaultPadding="False"
+                Command="{Binding GetDeviceOrientationCommand}"/>
+    </StackLayout>
+
+</ContentPage>
